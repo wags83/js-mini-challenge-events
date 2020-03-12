@@ -40,7 +40,40 @@ function toggleColor(element) {
   }
 }
 
+const header = document.getElementById("header")
+header.addEventListener('click', function (){
+  toggleColor(header)
+})
+
 
 /***** Deliverable 2 *****/
+
+function createPlayer(element){
+let playerDiv = document.createElement("div");
+playerDiv.innerHTML = `
+    <div class="player" data-number="${element.name}">
+    <h3>
+        ${element.name} (<em>${element.nickname}</em>)
+    </h3>
+    <img src="${element.photo}" alt="${element.name}">
+    </div>`;
+container.appendChild(playerDiv);
+};
+
+let form = document.getElementById('new-player-form')
+
+function getPlayerData() {
+  let player = {}
+  let form = document.getElementById('new-player-form')
+  player.name = form.name
+  console.log(player.name)
+}
+
+form.addEventListener('submit', function(){
+  form.preventDefault()
+  createPlayer(getPlayerData)
+})
+
+
 
 /***** Deliverable 3 *****/
