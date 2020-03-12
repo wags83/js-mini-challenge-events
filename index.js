@@ -6,6 +6,7 @@ const playerContainer = document.querySelector(".player-container")
 function renderPlayer(player) {
   // create an element for the outer div
   const playerDiv = document.createElement("div")
+  
 
   // set attributes on the outer div
   playerDiv.className = "player"
@@ -57,7 +58,7 @@ playerDiv.innerHTML = `
     </h3>
     <img src="${element.photo}" alt="${element.name}">
     </div>`;
-container.appendChild(playerDiv);
+    playerContainer.appendChild(playerDiv);
 };
 
 let form = document.getElementById('new-player-form')
@@ -65,13 +66,13 @@ let form = document.getElementById('new-player-form')
 function getPlayerData() {
   let player = {}
   let form = document.getElementById('new-player-form')
-  player.name = form.name
+  player.name = form.name.innerText
   console.log(player.name)
 }
 
-form.addEventListener('submit', function(){
-  form.preventDefault()
-  createPlayer(getPlayerData)
+form.addEventListener('submit', function(event){
+  event.preventDefault()
+  createPlayer(getPlayerData())
 })
 
 
