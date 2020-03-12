@@ -63,16 +63,10 @@ playerDiv.innerHTML = `
 
 let form = document.getElementById('new-player-form')
 
-function getPlayerData() {
-  let player = {}
-  let form = document.getElementById('new-player-form')
-  player.name = form.name.innerText
-  console.log(player.name)
-}
-
 form.addEventListener('submit', function(event){
   event.preventDefault()
-  createPlayer(getPlayerData())
+  let player = {number: event.target.number.value, name: event.target.name.value, nickname: event.target.nickname.value, photo: event.target.photo.value}
+  createPlayer(player)
 })
 
 
